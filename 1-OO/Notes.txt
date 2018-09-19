@@ -83,8 +83,108 @@ S.O.L.I.D. STANDS FOR:
  
  
  
+ 
+ from java-8 : Functional Programming ( FP )
+ 
+ 
+ 
+ How to create function in java ?
+ 
+ 
+ 
+ Predicate predicate = new Predicate() {
+						@Override
+						public boolean test(Txn txn) {
+							return txn.getAmount() == amount;
+						}
+					 };
+					   
+	  |
+	  |
+	  |
+	  |
+	  V
+	  
+ 
+ Predicate predicate = public boolean test(Txn txn) {
+							return txn.getAmount() == amount;
+						}
+	  				 
+      |
+	  |
+	  |
+	  |
+	  V					 
+ 
+ 
+ Predicate predicate = boolean test(Txn txn) {
+							return txn.getAmount() == amount;
+						}
+ 
+      |
+	  |
+	  |
+	  |
+	  V					 
+ 
+
+ 
+ Predicate predicate = test(Txn txn) {
+							return txn.getAmount() == amount;
+						}
+ 
+ 
+      |
+	  |
+	  |
+	  |
+	  V			 
+ 
+
+ Predicate predicate = (Txn txn) -> {
+							return txn.getAmount() == amount;
+						}
+  
+ 
+      |
+	  |
+	  |
+	  |
+	  V			 
+ 
+ 
+ Predicate predicate = (txn) -> {
+							return txn.getAmount() == amount;
+						}
  		
+
+      |
+	  |
+	  |
+	  |
+	  V			 
  
  
+ Predicate predicate = txn -> {
+							return txn.getAmount() == amount;
+						}
+ 		 
+ 
+
+      |
+	  |
+	  |
+	  |
+	  V			 
+ 
+ 
+ Predicate predicate = txn ->  txn.getAmount() == amount;
+ 
+ 
+ 
+ 
+ 
+ 
+						
  	
 	
