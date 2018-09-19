@@ -1,0 +1,90 @@
+
+
+what is object ?
+
+
+	- state
+	- behavior
+	- identity
+	
+	
+	obj ==> sbi
+	
+	
+	class  ==> instances
+	
+-------------------------------------------
+OO concepts
+-------------------------------------------
+
+ 1. Interface / Abstraction / API
+ 
+ 	-> easy to use/learn by dependent
+
+ 2. Implementation / Encapsulated
+ 
+ 3. Inheritance 	
+ 
+ 4. Polymorphic
+ 
+ ---------------------------------------------
+ 
+ bank-appln
+ 
+ 	- Txr-module
+ 	
+ 		use-case : txr(amount,from,to)
+ 		
+    step-1 : model
+    
+    		- Account
+    		- Txn
+    		
+    step-2 : DAO / repository layer  ==> persisting logic 
+    
+    		- AccountRepository
+    		
+    step-3 : service layer  ==> processing logic
+    
+    		- TxrService
+    		
+    step-4 : web layer   ==> request/response logic
+    
+    		- TxrController
+    		
+    		
+    		
+ ---------------------------------------------------- 		  						 		
+ OO principles
+ ---------------------------------------------------- 
+ 
+S.O.L.I.D. STANDS FOR:
+
+	S — Single responsibility principle
+	O — Open for extension & closed for modification principle
+	L — Liskov substitution principle
+	I — Interface segregation principle
+	D — Dependency Inversion principle
+ 
+ 
+ 
+ ---------------------------------------------------- 		  						 		
+ OO patterns
+ ---------------------------------------------------- 
+ 
+ 	- creational
+ 	- structural
+ 	- behavioral
+ 	
+ 		- observer/lister pattern
+ 
+ -----------------------------------------------------
+ 
+ 
+ 
+ 
+ 		
+ 
+ 
+ 	
+	
