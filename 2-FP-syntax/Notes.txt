@@ -1,0 +1,161 @@
+
+    -----------------------------------------------------------
+    What is Functional Programming
+	-----------------------------------------------------------
+	
+    - FP is a totally different way to think about writing and structuring code
+    - Up untill now, almost we have seen and has been imperative
+    - Imperative programming is a bit like the recipe for a cake -
+      do this, if this happens do something else and finally do another thing
+    - FP is a different approach, and a different paradigm tp writing code
+
+	-----------------------------------------------------------
+
+  FP 
+  
+   - "a style of building the structure and elements of computer programs -
+     that treats computation as the evaluation of mathematical functions and
+     avoids changing-state and mutable data
+     It is a declarative programming paradigm, which means programming is done
+     with expressions or declarations instead of statements"
+
+
+	i.e
+	
+     -> A sequence of mathematical functions,the evaluation of functions against a data set
+     -> Avoid changing state and mutating data, once assigned a value to variable, we do not change it
+     -> it is declarative, we program by saying what we want to do rather than how to do it
+     
+	-----------------------------------------------------------
+
+    FP - history
+
+    - FP stems from Lambda Calculus,a system developed on the 1930's 
+      to express computation as functions
+
+    - Initial this started out as a purely academic concept, 
+      before bleeding into commercial programming languages like Ruby,Python ad javaScript
+
+    - As we will see, a language dosen't have to exclusively functional, 
+      it may be combine elements of imperative and functional programming
+  
+    - Java, combines several paradigms including OOP,imperative and functional , now Reactive also
+
+	-----------------------------------------------------------
+
+    FP gives
+
+        - more readable
+        - readable code makes debugging and testing easier, and in turn simplify maintenance
+        - declarative approach just like SQL, where we define the output data set, rather than the steps required to get it
+        - resulting in much cleaner code 
+        - good for concurrent & parallelism
+
+	-----------------------------------------------------------
+	
+
+	How to implement in java ?
+	
+	from java-8, using lambda expression 
+
+	imp-point : Type of function in java is 'Functional Interface'
+
+
+	
+			- A package java.util.function;
+			- Over fourty FIs
+			- All common types of functions, ready to use
+			
+			
+			Functional Interfaces, by Function Type
+			
+			
+			nothing->T            Supplier
+			T->nothing            Consumer
+			T->T                  UnaryOperator
+			T,T->T                BinaryOperator
+			S->T                  Function
+			T->boolean            Predicate  
+		
+		
+		
+		
+			FI Name       Variants with X=Int,Long,Double         FunctionType
+				
+			Supplier         XSupplier                             noting->X
+			Consumer         XConsumer                             X->nothing
+			UnaryOperator    XUnaryOperator                        X->X
+			BinaryOperator   XBinaryOperator                       X,X->X
+			Predicate        XPredicate                            X->boolean
+			
+			
+			Variants of Function
+			
+			One primitive type : ToXFunction<T>          ( type:T ->X )
+			
+				- ToIntFunction<T>, etc.
+			
+			Two primitive types : XToYFunction<T>        ( type:X ->Y )
+			
+				-IntToLongFunction,IntToDoubleFunction, and so on
+		
+		
+	--------------------------------------------------------------
+	- Method References
+	--------------------------------------------------------------	
+	
+		- Function Pointers Come to Java
+	    - A MR is an expression denoting a method
+	    - Similar to function Pointers in C/C++
+	    - More efficient than reflection ( That is Method class )
+	    
+		
+	
+	--------------------------------------------------------------
+	
+
+	
+	Functional programming principles 
+	-----------------------------------
+	
+	
+    - A function can be stored in a variable or value
+    - A parameter of a function can be a function
+    - The return value of a function can be a function
+
+	
+	---------------------------------------------------------
+        
+        Characteristics of functional programming
+        
+        
+       	- Higher order function
+        - Function composition
+        - Lazy evaluation
+        - Immutable state
+        - No side effects
+		
+      
+	---------------------------------------------------------
+	
+		A higher order programming
+
+        - A function whose return value is a function
+        - A function with a parameter that is a function
+	
+	---------------------------------------------------------
+	         
+	
+		"Any fool can write code that a computer can understand. 
+		Good programmers write code that humans can understand." 
+
+               - Martin Fowler
+        
+	
+	
+	
+	
+	
+		
+		
+		

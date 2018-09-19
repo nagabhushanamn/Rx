@@ -8,8 +8,8 @@ import com.bank.repository.JPAAccountRepository;
 
 /*
  * 
- *  design & performance issues
- *  ----------------------------
+ *  design & performance issues on this component
+ *  -----------------------------------------------
  *  
  *   - tight-coupling with dependency
  *   	=> can't extend with new features
@@ -18,6 +18,7 @@ import com.bank.repository.JPAAccountRepository;
  *   - unit-testing not possible
  *   	=> dev/bug fix slow
  *  
+ *  -----------------------------------------
  *  
  *  
  *   why these issues ?
@@ -37,7 +38,7 @@ import com.bank.repository.JPAAccountRepository;
  *   		=> dependency injection
  *          => AOP
  *          
- *          
+ *   -----------------------------------------       
  * 
  */
 
@@ -55,7 +56,8 @@ public class TxrServiceImpl implements TxrService {
 	@Override
 	public boolean txr(double amount, String fromAccNum, String toAccNum) {
 		LOGGER.info("Txr initiated..");
-		// this.accountRepostory = new JPAAccountRepository();
+		
+		// this.accountRepostory = new JPAAccountRepository(); // Evil line
 
 		Account fromAccount = accountRepostory.loadAccount(fromAccNum);
 		Account toAccunt = accountRepostory.loadAccount(toAccNum);
@@ -65,6 +67,7 @@ public class TxrServiceImpl implements TxrService {
 		accountRepostory.updateAccount(fromAccount);
 		accountRepostory.updateAccount(toAccunt);
 		LOGGER.info("Txr finished..");
+		
 		return true;
 	}
 

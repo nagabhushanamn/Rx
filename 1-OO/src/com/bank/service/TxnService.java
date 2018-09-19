@@ -12,5 +12,7 @@ public interface TxnService {
 	List<Txn> getTxns(LocalDate date);
 
 	List<Txn> getTxns(LocalDate fromDate, LocalDate toDate);
+	
+	double getTotalTxnAmount();
 
 }

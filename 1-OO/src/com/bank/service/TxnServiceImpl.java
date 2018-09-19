@@ -1,6 +1,7 @@
 package com.bank.service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
@@ -26,75 +27,91 @@ public class TxnServiceImpl implements TxnService {
 
 		// -----------------------------------------
 		// way-1: imperative style ( what + How )
-
-//		List<Txn> out = new ArrayList<>();
-//		for (Txn e : TXNS) {
-//			if (e.getAmount() == amount)
-//				out.add(e);
-//		}
-//		return out;
+		// -----------------------------------------
+		
+		/*
+		List<Txn> out = new ArrayList<>();
+		for (Txn e : TXNS) {
+			if (e.getAmount() == amount)
+				out.add(e);
+		}
+		return out;
+		*/
 
 		// -----------------------------------------
 
 		// -----------------------------------------
+		// way-2 : declarative style by local-class ( what )
+		// -----------------------------------------
 
-		// way-2 : declarative style ( what )
+		/*
+		class ByAmount implements Predicate<Txn> {
+			@Override
+			public boolean test(Txn txn) {
+				return txn.getAmount() == amount;
+			}
+		}
+		Predicate<Txn> predicate = new ByAmount();
 
-//		class ByAmount implements Predicate {
-//			@Override
-//			public boolean test(Txn txn) {
-//				return txn.getAmount() == amount;
-//			}
-//		}
-//		Predicate predicate = new ByAmount();
-//
-//		return TxnUtilLib.filter(TXNS, predicate);
+		return TxnUtilLib.filter(TXNS, predicate);
+		*/
 
 		// -------------------------------------------
 
-		// -----------------------------------------
-
+		// -------------------------------------------
 		// way-3 : declarative style ( what ) by anonymous class
+		//-------------------------------------------
 
-//		Predicate predicate = new Predicate() {
-//			@Override
-//			public boolean test(Txn txn) {
-//				return txn.getAmount() == amount;
-//			}
-//		};
-//
-//		return TxnUtilLib.filter(TXNS, predicate);
+		/*
+		
+		Predicate<Txn> predicate = new Predicate<Txn>() {
+			@Override
+			public boolean test(Txn txn) {
+				return txn.getAmount() == amount;
+			}
+		};
+
+		return TxnUtilLib.filter(TXNS, predicate);
+		
+		*/
 
 		// -----------------------------------------
 
 		// way-4 : declarative style ( what ) by function
 
 		return TxnUtilLib.filter(TXNS, txn -> txn.getAmount() == amount);
+		
+		//------------------------------------------
 
 	}
 
+	
 	@Override
 	public List<Txn> getTxns(LocalDate date) {
 
 		// -----------------------------------------
 		// imperative style ( what + How )
+		//-----------------------------------------
 
-//		List<Txn> out = new ArrayList<>();
-//		for (Txn e : TXNS) {
-//			if (e.getDate().equals(date))
-//				out.add(e);
-//		}
-//		return out;
+		/*
+		List<Txn> out = new ArrayList<>();
+		for (Txn e : TXNS) {
+			if (e.getDate().equals(date))
+				out.add(e);
+		}
+		return out;
+		*/
 
 		// -----------------------------------------
-		// declarative style ( what + How )
+		// declarative style ( what )
+		//-----------------------------------------
 		class ByDate implements Predicate<Txn> {
 			@Override
 			public boolean test(Txn txn) {
 				return txn.getDate() == date;
 			}
 		}
-		Predicate predicate = new ByDate();
+		Predicate<Txn> predicate = new ByDate();
 		return TxnUtilLib.filter(TXNS, predicate);
 
 		// -----------------------------------------
@@ -104,6 +121,37 @@ public class TxnServiceImpl implements TxnService {
 	@Override
 	public List<Txn> getTxns(LocalDate fromDate, LocalDate toDate) {
 		return null;
+	}
+
+	@Override
+	public double getTotalTxnAmount() {
+
+		//-----------------------------------------
+		//Imperative style
+		//-----------------------------------------
+		
+		/*
+		double total=0.0;
+		for(Txn txn:TXNS) {
+			total+=txn.getAmount();
+		}
+		*/
+
+		//	-----------------------------------------
+		// functional style with stream
+		// -----------------------------------------
+		
+		/*
+		return TXNS
+		.stream()
+		.mapToDouble(txn->txn.getAmount())
+		.sum();
+		*/
+
+		// or
+
+		return TXNS.stream().mapToDouble(Txn::getAmount).sum();
+
 	}
 
 }
