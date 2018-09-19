@@ -1,0 +1,269 @@
+
+-----------------------------------------------------------
+
+Reactive Programming is trending
+
+    Why are people so excited about reactive programming?
+    What does it mean to be reactive? 
+    Would it be helpful in our projects? 
+    Should we learn how to use it?
+
+
+-----------------------------------------------------------
+
+Meanwhile Java is
+
+    -  is popular with its multi-threading, speed, reliability, and good portability.
+    -  but has bad reputation too — 
+       it is very hard to write both concurrent
+       and simple applications using only the built-in tools
+    -  programming requires writing a lot of boilerplate code   
+
+    In other words, 
+    Java is powerful and you can create great applications with it,
+    but it won't be easy.
+
+    The good news is that there is a way to change that, 
+    using the reactive style of programming.
+
+
+-----------------------------------------------------------
+
+- What reactive programming is
+- Reasons to learn and use this style of programming
+
+-----------------------------------------------------------
+
+What is reactive programming?
+
+Reactive programming is 
+a paradigm that revolves around the propagation of change. 
+
+In other words, 
+if a program propagates all the changes that modify its data to all the interested parties
+(users, other programs, components, and subparts), 
+then this program can be called reactive.
+
+
+A simple example of this is Microsoft Excel. 
+If you set a number in cell A1 and another number in cell 'B1',
+and set cell 'C1' to SUM(A1, B1); 
+whenever 'A1' or 'B1' changes, 'C1' will be updated to be their sum.
+
+
+Let's call this the reactive sum.
+
+
+
+What is the difference between assigning a simple variable c 
+to be equal to the sum of the a and b variables
+and the reactive sum approach?
+
+
+int a = 4;
+int b = 5;
+int c = a + b;
+System.out.println(c); // 9
+
+a = 6;
+System.out.println(c);
+// 9 again, but if 'c' was tracking the changes of 'a' and 'b',
+// it would've been 6 + 5 = 11
+
+
+-----------------------------------------------------------
+
+Why should we be reactive?
+
+
+The easiest way for us to answer this question is 
+to think about the requirements 
+we have while building applications these days.
+
+
+    - today everything should be online 24/7 and 
+      should respond with lightning speed; 
+    - if it's slow or down, 
+      users would prefer an alternative service.
+    - Today slow means unusable or broken.
+    - We are working with greater volumes of data
+      that we need to serve and process fast.
+
+
+    we have to be fault-tolerant and 
+    give our users readable and reasonable message updates.
+
+    In the past, we wrote simple desktop applications,
+    but today we write web applications, 
+    which should be fast and responsive. 
+
+
+    These are the new requirements 
+    we have to fulfill if we want our software to be competitive. 
+    So in other words we have to be:
+
+
+    Modular/dynamic: 
+    -----------------
+    This way, we will be able to have 24/7 systems, 
+    because modules can go offline and come online without breaking 
+    or halting the entire system. 
+    Additionally, 
+    this helps us better structure our applications 
+    as they grow larger and manage their code base.
+
+    Scalable: 
+    ----------
+    This way, we are going to be able to handle
+    a huge amount of data
+    or large numbers of user requests.
+
+    Fault-tolerant:
+    -----------------
+    This way, the system will appear stable to its users.
+
+    Responsive:
+    ------------
+    This means fast and available.
+
+
+
+
+
+    Let's think about how to accomplish this:
+
+    We can become modular if our system is event-driven.
+    We can divide the system into multiple
+    micro-services/components/modules
+    that are going to communicate with each other using notifications.
+    This way, 
+    we are going to react to the data flow of the system,
+    represented by notifications.
+
+    To be scalable means 
+    to react to the ever-growing data, 
+    to react to load without falling apart.
+
+    Reacting to failures/errors 
+    will make the system more fault-tolerant.
+
+    To be responsive means 
+    reacting to user activity in a timely manner.
+
+
+
+
+    If the application is event-driven, 
+    it can be decoupled into multiple self-contained components.
+    This helps us become more scalable, 
+    because we can always add new components 
+    or remove old ones without stopping or breaking the system.
+
+    If errors and failures are passed to the right component,
+    which can handle them as notifications,
+    the application can become more fault-tolerant or resilient. 
+    
+    So if we build our system to be event-driven, 
+    we can more easily achieve scalability and failure tolerance,
+    and a scalable, decoupled, and error-proof application 
+    is fast and responsive to users.
+
+
+    Reactive Manifesto (http://www.reactivemanifesto.org/)
+
+
+    Changes in the application data can be modeled with notifications,
+    which can be propagated to the right handlers. 
+    So, writing applications 
+    using reactive programming is the easiest way 
+    to comply with the Manifesto.
+
+
+
+    ------------------------------------------------------------------------------------------
+
+    What is Functional Programming
+
+    - FP is a totally different way to think about writing and structuring code
+    - Up untill now, almost we have seen and has been imperative
+    - Imperative programming is a bit like the recipe for a cake -
+      do this, if this happens do something else and finally do another thing
+    - FP is a different approach, and a different paradigm tp writing code
+
+
+  FP 
+   - "a style of building the structure and elements of computer programs -
+     that treats computation as the evaluation of mathematical functions and
+     avoids changing-state and mutable data
+     It is a declarative programming paradigm, which means programming is done
+     with expressions or declarations instead of statements"
+
+
+     -> A sequence of mathematical functions,the evaluation of functions against a data set
+     -> Avoid changing state and mutating data, once assigned a value to variable, we do not change it
+     -> it is declarative, we program by saying what we want to do rather than how to do it
+
+        Think about differences between
+
+         SQL ( select * from ..)  vs  x=x*40
+
+
+
+
+    FP - history
+
+    - FP stems from Lambda Calculus,a system developed on the 1930's 
+      to express computation as functions
+
+    - Initial this started out as a purely academic concept, before bleeting into commercial programming languages like Ruby,Python ad javaScript
+
+    - As we will see, a language dosen't have to exlusively functional, it may be combine elements of imperative and functional programming
+  
+    - Java, combines several paradigms including OOP,imperative and functional , now Reactive also
+
+
+
+   An Example
+
+
+      - we have a list of numbers stored in an array
+      - in order to use this list of numbers in out application, we need to remove all elements that are not even
+
+
+     An Imperative style
+
+     - we will create a new array to hold our even numbers
+     - we alo need to find out how long our array is
+     - Next, we need to create iterator
+     - Then we need to loop over each element in the array from 0 to length-1, and read each element
+     - For each element we must test of the element is even
+     - If it is, we copy it to the new array, if not we skip it
+       
+    An Functional style
+
+     - defint test function, to Lib
+
+
+
+    FP
+
+        - more readable
+        - readable code makes debugging and testing easier, and in turn simplify maintenance
+        - declarative approach just like SQL, where we define the output data set, rather than the steps required to get it
+        - resulting in much cleaner code 
+
+
+        
+        ? Imagine you are moving data from one system to another with lots of transformation and processing, aka ETL
+        
+        Do you think it would be easier to do this imperatively or functionally ?
+
+        Which approach do you think would be easier to parallelize across multople cores or even multiple servers
+
+        Which pradigm do you think is more expressive for data processing and transformation?
+        
+
+
+
+
+
