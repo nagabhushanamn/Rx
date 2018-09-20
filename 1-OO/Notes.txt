@@ -2,16 +2,13 @@
 
 what is object ?
 
-
 	- state
 	- behavior
 	- identity
 	
 	
-	obj ==> sbi
-	
-	
 	class  ==> instances
+	
 	
 -------------------------------------------
 OO concepts
@@ -28,6 +25,7 @@ OO concepts
  4. Polymorphic
  
  ---------------------------------------------
+ e.g
  
  bank-appln
  
@@ -51,8 +49,7 @@ OO concepts
     step-4 : web layer   ==> request/response logic
     
     		- TxrController
-    		
-    		
+
     		
  ---------------------------------------------------- 		  						 		
  OO principles
@@ -82,15 +79,13 @@ S.O.L.I.D. STANDS FOR:
  
  
  
- 
- 
  from java-8 : Functional Programming ( FP )
  
  
  
  How to create function in java ?
  
- 
+
  
  Predicate predicate = new Predicate() {
 						@Override
