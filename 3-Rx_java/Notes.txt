@@ -1,0 +1,30 @@
+
+
+
+
+RxJava
+----------------
+
+	- a library, To write reactive programs
+	- Java is not really a reactive programming language 
+
+ -RxJava (developed by people in the Java open source community, guided by Netflix).
+
+
+-----------------------------------------------------------------------------------------
+
+
+
+- iterator Vs Observable pattern
+
+  
+
+	- iterator   => pull model
+	- Observable => push model
+	
+	
+	
+	
+	
+
+	
